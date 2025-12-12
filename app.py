@@ -22,10 +22,10 @@ class AppFeatures(BaseModel):
         first_input = input(
             """
             Hi! How would you like to proceed?
-            
-                1. Not a member? Register
-                2. Alreadey a member? Login
-                3. Nothing? Exit
+                        
+                1. Press 1 for Registration.
+                2. Press 2 for Login.
+                3. Press 3 for Exit.
             """
         )
 
@@ -46,19 +46,50 @@ class AppFeatures(BaseModel):
             1. Sentiment Analysis
             2. Language Translation
             3. Language Detection
+            4. Text Summarization
+            5. Keyword Extraction
+            6. Named Entity Recognition
+            7. Part-of-Speech Tagging
+            8. Topic Modeling
+            9. Text Classification
+            10. Question Answering
+            11. Text Generation
+            12. Emotion Detection
+            13. Intent Detection
+            14. Paraphrase Detection
         """
-        )
+    )
         if second_input == "1":
-            #sentiment
             self.__sentiment_analysis()
         elif second_input == "2":
-            #translation
             self.__language_translation()
         elif second_input == "3":
-            #detection
             self.__language_detection()
+        elif second_input == "4":
+            self.__text_summarization()
+        elif second_input == "5":
+            self.__keyword_extraction()
+        elif second_input == "6":
+            self.__named_entity_recognition()
+        elif second_input == "7":
+            self.__part_of_speech_tagging()
+        elif second_input == "8":
+            self.__topic_modeling()
+        elif second_input == "9":
+            self.__text_classification()
+        elif second_input == "10":
+            self.__question_answering()
+        elif second_input == "11":
+            self.__text_generation()
+        elif second_input == "12":
+            self.__emotion_detection()
+        elif second_input == "13":
+            self.__intent_detection()
+        elif second_input == "14":
+            self.__paraphrase_detection()
         else:
             exit()
+
 
     def __register(self):
         name = input("Enter your Name: ")
@@ -111,6 +142,95 @@ class AppFeatures(BaseModel):
         user_text = input("Enter your text: ")
         model = self.getmodel()
         response = model.generate_content(f"Detect the language of this sentence: {user_text}")
+        results = response.text
+        print(results)
+        self.second_menu()
+
+    def __text_summarization(self):
+        user_text = input("Enter your text: ")
+        model = self.getmodel()
+        response = model.generate_content(f"Summarize of this sentence: {user_text}")
+        results = response.text
+        print(results)
+        self.second_menu()
+
+    def __keyword_extraction(self):
+        user_text = input("Enter your text: ")
+        model = self.getmodel()
+        response = model.generate_content(f"Extract the important keywords from this sentence: {user_text}")
+        results = response.text
+        print(results)
+        self.second_menu()
+
+    def __named_entity_recognition(self):
+        user_text = input("Enter your text: ")
+        model = self.getmodel()
+        response = model.generate_content(f"Identify named entities (like person, place, organization) in this sentence: {user_text}")
+        results = response.text
+        print(results)
+        self.second_menu()
+
+    def __part_of_speech_tagging(self):
+        user_text = input("Enter your text: ")
+        model = self.getmodel()
+        response = model.generate_content(f"Tag each word in this sentence with its part of speech: {user_text}")
+        results = response.text
+        print(results)
+        self.second_menu()
+
+    def __topic_modeling(self):
+        user_text = input("Enter your text: ")
+        model = self.getmodel()
+        response = model.generate_content(f"Identify the main topic of this sentence: {user_text}")
+        results = response.text
+        print(results)
+        self.second_menu()
+
+    def __text_classification(self):
+        user_text = input("Enter your text: ")
+        model = self.getmodel()
+        response = model.generate_content(f"Classify this sentence into a category (e.g. sports, politics, technology): {user_text}")
+        results = response.text
+        print(results)
+        self.second_menu()
+
+    def __question_answering(self):
+        user_text = input("Enter your question: ")
+        model = self.getmodel()
+        response = model.generate_content(f"Answer the question based on the user question: {user_text}")
+        results = response.text
+        print(results)
+        self.second_menu()
+
+    def __text_generation(self):
+        user_text = input("Enter a prompt: ")
+        model = self.getmodel()
+        response = model.generate_content(f"Generate a short text based on this prompt: {user_text}")
+        results = response.text
+        print(results)
+        self.second_menu()
+
+    def __emotion_detection(self):
+        user_text = input("Enter your text: ")
+        model = self.getmodel()
+        response = model.generate_content(f"Detect the emotion expressed in this sentence (happy, sad, angry, etc.): {user_text}")
+        results = response.text
+        print(results)
+        self.second_menu()
+
+    def __intent_detection(self):
+        user_text = input("Enter your text: ")
+        model = self.getmodel()
+        response = model.generate_content(f"Detect the intent of this sentence (e.g. booking, inquiry, complaint): {user_text}")
+        results = response.text
+        print(results)
+        self.second_menu()
+
+    def __paraphrase_detection(self):
+        text1 = input("Enter first sentence: ")
+        text2 = input("Enter second sentence: ")
+        model = self.getmodel()
+        response = model.generate_content(f"Check if these two sentences mean the same thing:\n1. {text1}\n2. {text2}")
         results = response.text
         print(results)
         self.second_menu()
