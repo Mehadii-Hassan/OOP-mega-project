@@ -60,4 +60,4 @@ pip install -r requirements.txt
 
 ## License
 
-This project is open-source and free to use for learning purposes.
+This project is open-source and free to use for learning purposes. 
