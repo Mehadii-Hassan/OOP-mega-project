@@ -235,4 +235,4 @@ class AppFeatures(BaseModel):
         print(results)
         self.second_menu()
 
-app = AppFeatures()
+app = AppFeatures() 
